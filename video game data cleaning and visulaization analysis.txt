@@ -1,0 +1,127 @@
+Title:
+Video Game Data Cleaning and Visualization Analysis.
+1. Introduction
+Data Cleaning and Visualization are important processes in Data Analysis. Raw datasets often contain missing values, duplicate records, and inconsistent information. Cleaning the data improves data quality and helps in generating accurate insights.
+In this project, a video game dataset is cleaned, processed, and visualized using Python libraries such as Pandas, Matplotlib, and Seaborn.
+2. Objective
+The objectives of this project are:
+To clean raw data by handling missing values and duplicates
+To preprocess the dataset for analysis
+To visualize trends and patterns using charts and graphs
+To generate meaningful insights from the dataset
+3. Dataset Description
+The dataset contains information related to video games such as:
+Column Name
+Description
+Name
+Game Name
+Platform
+Gaming Platform
+Year
+Release Year
+Genre
+Type of Game
+Publisher
+Publishing Company
+Global_Sales
+Worldwide Sales
+4. Technologies Used
+Python
+Pandas
+Matplotlib
+Seaborn
+Google Colab / Jupyter Notebook
+5. Data Cleaning Process
+The following cleaning techniques were applied:
+5.1 Handling Missing Values
+Missing values were identified and removed from the dataset.
+Python
+df.isnull().sum()
+df.dropna(inplace=True)
+5.2 Removing Duplicate Records
+Duplicate rows were checked and removed.
+Python
+df.duplicated().sum()
+df.drop_duplicates(inplace=True)
+5.3 Checking Data Types
+The data types of columns were verified.
+Python
+df.info()
+6. Data Visualization
+6.1 Genre Distribution
+A count plot was used to visualize the number of games in each genre.
+Python
+sns.countplot(x='Genre', data=df)
+plt.xticks(rotation=90)
+plt.show()
+Observation
+Action and Sports genres contain the highest number of games.
+6.2 Platform-wise Analysis
+A bar graph was used to compare gaming platforms.
+Observation
+PlayStation and Nintendo platforms have higher game counts.
+6.3 Sales Trend Analysis
+Sales trends were analyzed using line charts.
+Observation
+Game sales increased significantly after 2005.
+6.4 Correlation Heatmap
+A heatmap was generated to analyze relationships between numerical columns.
+Python
+sns.heatmap(df.corr(numeric_only=True), annot=True)
+plt.show()
+Observation
+Global sales show strong correlation with regional sales.
+7. Complete Python Code
+Python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load Dataset
+df = pd.read_csv("vgsales.csv")
+
+# Display Dataset
+print(df.head())
+
+# Dataset Information
+print(df.info())
+
+# Statistical Summary
+print(df.describe())
+
+# Missing Values
+print(df.isnull().sum())
+
+# Remove Missing Values
+df.dropna(inplace=True)
+
+# Remove Duplicates
+df.drop_duplicates(inplace=True)
+
+# Genre Visualization
+plt.figure(figsize=(10,6))
+sns.countplot(x='Genre', data=df)
+plt.xticks(rotation=90)
+plt.title("Genre Distribution")
+plt.show()
+
+# Correlation Heatmap
+plt.figure(figsize=(8,6))
+sns.heatmap(df.corr(numeric_only=True), annot=True)
+plt.title("Correlation Heatmap")
+plt.show()
+8. Results and Findings
+The project identified several important insights:
+Action games are the most common genre
+PlayStation platforms dominate the dataset
+Missing and duplicate values affect data quality
+Visualization helps in understanding trends easily
+Sales increased rapidly after 2005
+9. Conclusion
+This project demonstrated the importance of data cleaning and visualization in data analysis. By preprocessing the dataset and creating visual reports, meaningful insights were extracted successfully. The project improved understanding of data handling, preprocessing, and storytelling using visualizations.
+10. Future Improvements
+Future enhancements may include:
+Interactive dashboards
+Machine learning prediction models
+Advanced statistical analysis
+Real-time data visualization
